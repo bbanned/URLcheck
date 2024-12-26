@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Web Security Check </title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>网页安全检测</h1>
+        
+        <div class="input-group">
+            <textarea id="urls" placeholder="请输入需要检测的网址，每行一个&#10;例如: https://t.me/oooban"></textarea>
+            <div class="button-group">
+                <button onclick="checkUrls('rcs')">RCS 检测</button>
+                <button onclick="checkUrls('imessage')">iMessage 检测</button>
+            </div>
+            <div id="results" class="results"></div>
+        </div>
+        <div class="footer">
+            Copyright © 2025 Web Security Check All rights reserved.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

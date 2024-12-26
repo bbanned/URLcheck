@@ -1,0 +1,251 @@
+/* 全局变量 */
+:root {
+  --primary-color: #242e4c;
+  --safe-color: #4CAF50;
+  --unsafe-color: #f44336;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 20px rgb(0 0 0 / 0.1);
+}
+
+/* 基础布局 */
+body {
+  font-family: 'Roboto', system-ui, sans-serif;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  width: min(90%, 500px);
+}
+
+/* 标题和输入区域 */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+/* 文本框样式 */
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+  margin: 10px 0;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  resize: none;
+  font-family: inherit;
+  line-height: 1.5;
+  background-color: #fafafa;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(36, 46, 76, 0.1);
+}
+
+textarea::placeholder {
+  color: #999;
+}
+
+/* 按钮基础样式 */
+button {
+  width: 100%;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+/* RCS 按钮 */
+button[onclick*="rcs"] {
+  background: linear-gradient(135deg, #2c3e50 0%, #1a2634 100%);
+}
+
+button[onclick*="rcs"]:hover {
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+}
+
+/* iMessage 按钮 */
+button[onclick*="imessage"] {
+  background: linear-gradient(135deg, #3b5998 0%, #2f477a 100%);
+}
+
+button[onclick*="imessage"]:hover {
+  background: linear-gradient(135deg, #4c70ba 0%, #3b5998 100%);
+  box-shadow: 0 4px 12px rgba(59, 89, 152, 0.3);
+}
+
+/* 按钮交互效果 */
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* 结果展示区域 */
+.results {
+  margin-top: 20px;
+}
+
+.result-item {
+  margin: 10px 0;
+  padding: 12px 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 安全状态样式 */
+.safe {
+  background-color: #e8f5e9;
+  border: 1px solid var(--safe-color);
+  color: #2e7d32;
+}
+
+.unsafe {
+  background-color: #ffebee;
+  border: 1px solid var(--unsafe-color);
+  color: #c62828;
+}
+
+/* 状态标签 */
+.status-badge {
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.safe .status-badge {
+  background-color: var(--safe-color);
+  color: white;
+}
+
+.unsafe .status-badge {
+  background-color: var(--unsafe-color);
+  color: white;
+}
+
+/* 结果内容样式 */
+.result-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.url-text {
+  font-weight: 500;
+}
+
+.detail-text {
+  color: #666;
+  margin-left: 5px;
+}
+
+/* 页脚 */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  color: #666;
+  font-size: 13px;
+}
+
+/* 添加关键渲染路径优化 */
+@font-face {
+  font-family: 'Roboto';
+  font-display: swap;
+  /* ... */
+}
+
+/* 添加打印样式 */
+@media print {
+  .button-group {
+    display: none;
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  body {
+    background-color: white;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+    min-height: 100vh;
+    box-shadow: none;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .button-group {
+    flex-direction: row;
+    gap: 8px;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  button {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+
+  .result-item {
+    margin: 12px 0;
+    padding: 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .status-badge {
+    padding: 4px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    font-size: 13px;
+    color: #94a3b8;
+  }
+}
