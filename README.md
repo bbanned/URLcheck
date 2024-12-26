@@ -9,6 +9,10 @@
 - 批量 URL 检测支持
 - 实时检测结果展示
 
+## 界面展示
+
+[![沙漠中的岩石图片](https://github.com/bbanned/URLcheck/blob/main/UI.png?raw=true "URLcheck")]()
+
 ## 安装部署
 
 1. 克隆仓库：
